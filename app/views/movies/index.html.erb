@@ -2,13 +2,35 @@
 
 <h1>Movies</h1>
 
+<% current_sort = params[:sort].presence || "title" %>
+<% current_direction = params[:direction].presence || "asc" %>
+
 <div id="movies">
     <table>
       <thead>
         <tr>
-          <th><%= link_to "Title", movies_path(sort: "title", direction: "asc")%></th>
-          <th><%= link_to "Rating", movies_path(sort: "rating", direction: "asc") %></th>
-           <th><%= link_to "Release Date", movies_path(sort: "release_date", direction: "asc") %></th>
+          <th class="<%= current_sort == 'title' ? "sorted-#{current_direction}" : "" %>">
+          <%= link_to "Title #{current_sort == 'title' ? (current_direction == 'asc' ? '↑' : '↓') : ''}",
+              movies_path(
+                sort: "title",
+                direction: current_sort == "title" && current_direction == "asc" ? "desc" : "asc"
+              ) %>
+        </th>
+
+        <th class="<%= current_sort == 'rating' ? "sorted-#{current_direction}" : "" %>">
+          <%= link_to "Rating #{current_sort == 'rating' ? (current_direction == 'asc' ? '↑' : '↓') : ''}",
+              movies_path(
+                sort: "rating",
+                direction: current_sort == "rating" && current_direction == "asc" ? "desc" : "asc"
+              ) %>
+        </th>
+
+        <th class="<%= current_sort == 'release_date' ? "sorted-#{current_direction}" : "" %>">
+          <%= link_to "Release Date #{current_sort == 'release_date' ? (current_direction == 'asc' ? '↑' : '↓') : ''}",
+              movies_path(
+                sort: "release_date",
+                direction: current_sort == "release_date" && current_direction == "asc" ? "desc" : "asc"
+              ) %></th>
         </tr>
       </thead>   
 

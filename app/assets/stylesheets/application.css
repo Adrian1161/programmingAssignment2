@@ -1,15 +1,63 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f8;
+  color: #252525;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Movie table */
+#movies table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+#movies th,
+#movies td {
+  padding: 12px;
+  border: 1px solid #d5dbe0;
+  text-align: left;
+}
+
+#movies thead {
+  background-color: #e8edf2;
+}
+
+#movies th a {
+  color: #202c39;
+  text-decoration: none;
+}
+
+#movies th a:hover {
+  text-decoration: underline;
+}
+
+/* Highlight the active sorting column */
+#movies th.sorted-asc {
+  background-color: #ccebd6;
+}
+
+#movies th.sorted-desc {
+  background-color: #f6d2d2;
+}
+
+/* Alternating rows and hover effect */
+#movies tbody tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
+
+#movies tbody tr:hover {
+  background-color: #e0eaf5;
+}
+
+/* Table footer */
+#movies tfoot {
+  font-weight: bold;
+  background-color: #e8edf2;
+}
