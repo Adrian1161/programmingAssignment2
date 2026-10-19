@@ -6,7 +6,9 @@
     <table>
       <thead>
         <tr>
-          <th>Rating</th>
+          <th><%= link_to "Title", movies_path(sort: "title", direction: "asc")%></th>
+          <th><%= link_to "Rating", movies_path(sort: "rating", direction: "asc") %></th>
+           <th><%= link_to "Release Date", movies_path(sort: "release_date", direction: "asc") %></th>
         </tr>
       </thead>   
 
