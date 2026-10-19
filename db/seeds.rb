@@ -22,4 +22,5 @@ more_movies.each do |movie|
   Movie.find_or_create_by!(title: movie[:title]) do |new_movie|
     new_movie.rating = movie[:rating]
     new_movie.release_date = movie[:release_date]
+  end
 end
